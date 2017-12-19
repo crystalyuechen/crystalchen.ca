@@ -1,0 +1,330 @@
+<head>
+  <title>fuckpolymer</title>
+  <link rel="icon" type="image/png" href="/pictures/favicon-black.png" sizes="16x16">
+  <script src="/components/webcomponentsjs/webcomponents-lite.js">
+  </script>
+  <script src="/components/webcomponentsjs/webcomponents-loader.js">
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+  <link rel="import" href="/components/polymer/polymer.html">
+  <link rel="import" href="/components/iron-icons/iron-icons.html">
+  <link rel="import" href="/components/app-layout/app-layout.html">
+  <link rel="import" href="/components/app-layout/app-header/app-header.html">
+  <link rel="import" href="/components/app-layout/app-toolbar/app-toolbar.html">
+  <link rel="import" href="/components/app-layout/app-drawer/app-drawer.html">
+  <link rel="import" href="/components/app-layout/app-scroll-effects/app-scroll-effects.html">
+  <link rel="import" href="/components/iron-form/iron-form.html">
+  <link rel="import" href="/components/paper-input/paper-input.html">
+  <link rel="import" href="/components/paper-input/paper-textarea.html">
+  <link rel="import" href="/components/paper-button/paper-button.html">
+</head>
+
+<body>
+</body>
+
+
+<template name="layout1">
+  <app-drawer-layout responsive-width="1280px" style="overflow: hidden;">
+    <style is="custom-style">
+      html {
+        --app-drawer-width: 288px;
+        --primary-color: #03A9FC;
+      }
+    </style>
+    {{> Template.dynamic template=top}}
+    <iron-icon icon="icons:menu" drawer-toggle id="new-site-nav-btn"></iron-icon>
+    <app-drawer slot="drawer" id="drawer" swipe-open>
+      <div>
+        <ul class="menuItems">
+          <li>
+            <a href="/home" drawer-toggle> about me</a>
+          </li>
+          <!-- <li>
+            <a href="/" drawer-toggle> past work </a>
+          </li> -->
+          <li>
+            <a href="/oldsite" drawer-toggle> past work (old site) </a>
+          </li>
+          <li>
+            <a href="/contact" drawer-toggle> contact me</a>
+          </li>
+        </ul>
+      </div>
+    </app-drawer>
+
+    <div>
+      {{> Template.dynamic template=main}}
+    </div>
+
+  </app-drawer-layout>
+</template>
+
+<template name="navigation">
+
+</template>
+
+<template name="portal">
+  <div class="gif-container fadeIn1">
+    <a href="/home"> <img src="/pictures/moons.gif"> </a>
+  </div>
+</template>
+
+<template name="home">
+  <a href="/">
+    <div class="favicon">
+      <img src="pictures/favicon-black.png">
+    </div>
+  </a>
+    <div class="intro">
+        <div class="fadeIn1" id="expand">
+          <p> Hello, I'm Crystal. </p>
+          <div id="expand-button"> <iron-icon icon="icons:expand-more"> </iron-icon> </div>
+          <div id="collapse-button"> <iron-icon icon="icons:expand-less"> </iron-icon> </div>
+        </div>
+        <p class="fadeIn1" id="more-about-me">
+          <a href="https://drive.google.com/file/d/1Rr5n5c0PyPEk0v-fekOFFAs7-SbPNVS3/view?usp=sharing"> I'm a soon-to-be UCLA graduate of political science from Toronto. </a>
+          <br><br> Currently, I am studying deep learning and web animations.
+          <br><br> Here you'll find some things I have made in my free time.
+         </p>
+        <div id="welcome-message">
+          <p id="fade-in-2"> Welcome to my website. </p>
+          <p id="fade-in-3"> Please explore. </p>
+        </div>
+    </div>
+</template>
+
+<template name="contact">
+  <div class="contactHeader">
+    <div class="favicon">
+      <img src="pictures/favicon-black.png">
+    </div>
+  </div>
+
+<!-- <paper-input-container>
+
+  <paper-input slot="input" label="input">
+
+  </paper-input>
+
+</paper-input-container> -->
+
+
+  <iron-form class="ContactForm">
+    <paper-textarea label="Your name" required id="sender-name" class="ContactInput"></paper-textarea>
+    <paper-textarea label="Your e-mail or phone number" required id="sender-contact" class="ContactInput"></paper-textarea>
+    <paper-textarea label="Message" maxRows="0" required id="message" class="ContactInput"></paper-textarea>
+
+    <div class="centeringContainer">
+      <paper-button id="submit-message"> send </paper-button>
+    </div>
+  </iron-form>
+<!--
+
+  <form id="contact-me">
+    <input type="text" required id="sender">
+    <label>Sender</label>
+
+    <input type="text" required id="sender-contact">
+    <label>Email or Phone</label>
+
+    <input type="text" required id="message">
+    <label>Message</label>
+
+  <button type="button" id="submit-message"> submit </button>
+
+</form> -->
+</template>
+<!-- old website -->
+<template name="layout2">
+  <body id="old-site-body">
+    <a href="/">
+      <div class="oldNavBtn">
+        <iron-icon icon="icons:arrow-back"> </iron-icon>
+        <div id="back-to-new">back to main site</div>
+      </div>
+    </a>
+
+  {{> Template.dynamic template=top}}
+  <div id="main-template-fill">
+    {{> Template.dynamic template=main}}
+  </div>
+  </body>
+</template>
+
+<template name="oldnavigation">
+
+  <!-- polymer menu drawer -->
+  <br>
+ <div class="oldNavBtn">
+    <iron-icon icon="icons:menu" onclick="drawer.toggle()"></iron-icon> </div>
+    <!-- <div main-title>My app</div>
+    <iron-icon icon="icons:add"> add </iron-icon>
+    <iron-icon icon="icons:search"></iron-icon>
+    <iron-icon icon="icons:close"></iron-icon>
+    <paper-progress value="10" indeterminate bottom-item></paper-progress> -->
+
+
+  <app-drawer id="drawer" swipe-open>
+    <div class="menu">
+      <div id="menu-heading">
+        <a href="/about-me">
+          <div id="about-me" class="linebreak" onclick="drawer.toggle()">ABOUT ME</div>
+        </a>
+        <a href="/oldcontact">
+          <div id="contact"  class="linebreak" onclick="drawer.toggle()">CONTACT ME</div>
+        </a>
+        <div id="menu-heading-projects" class="speciallinkebreak" onclick="drawer.toggle()">PROJECTS</div>
+        <div class="menuOption">
+          <a href="/projects-bruinmobile">
+            <div drawer-toggle>bruin mobile</div>
+          </a>
+          <a href="/projects-morningsignout">
+            <div drawer-toggle>morningsignout</div>
+          </a>
+          <a href="/projects-desktop">
+            <div drawer-toggle>desktop</div>
+          </a>
+        </div>
+    </div>
+    </div>
+  </app-drawer>
+  <div id="logo">
+    <a href="/oldsite">
+      <img src="pictures/crystal-chen-logo-white.png"> </a>
+  </div>
+
+</template>
+
+<template name="freelance" class="bottomTemplate">
+  <a href="/oldhome">
+    <div id="freelanceContainer">
+      <div id="freelancer">
+        <span id="smaller-freelance">is a mobile/web</span><br>
+        <span id="condensed-freelance">DESIGNER
+          <br>& DEVELOPER
+          <br>
+        </span>
+        <br>
+        <span id="smaller-freelance">using:
+          <br>AngularJS – Meteor
+          <br>PHP, SQL
+          <br>
+          <br>learning:
+          <br> (web animations) webGL | threejs
+          <br> (game design) Unity3D</span>
+      </div>
+    </div>
+
+  </a>
+</template>
+
+<template name="oldhome">
+  <div class="cubeContainer">
+    <a href="/oldsite">
+      <div class="threejscube-container">
+      </div>
+    </a>
+  </div>
+</template>
+
+<template name="projectsBruinmobile">
+  <div class="bruinmobileContainer">
+    <div id="about-bruinmobile">
+      was a <br>
+      <span>jr. systems administrator</span>
+      <br>
+      &<span>mobile developer</span>
+      <br> for Bruin Mobile, division of UCLA Student Media
+    </div>
+  </div>
+      <div class="bruin-mobile-viewport">
+        <img src="pictures/bruin-mobile-website-1.png" id="bruinmobilewebpage" />
+        <img src="pictures/bruin-mobile-website-2.png" id="bruinmobilewebpage" />
+        <img src="pictures/bruin-mobile-website-3.png" id="bruinmobilewebpage" />
+        <img src="pictures/bruin-mobile-website-4.png" id="bruinmobilewebpage" />
+      </div>
+</template>
+
+
+<template name="projectsMorningsignout">
+  <div class="msoContainer">
+    <p id="smaller-work-for-mso">was doing</p>
+    <p id="work-for-mso">web development </p>
+    <div id="smaller-work-for-mso2" class='outsideLink'><a href="http://morningsignout.com/author/crystalchen/">for morningsignout.com</a></div>
+    <br><br>
+    <div id="about-mso">"science, medicine, for everyone"</div>
+      </div>
+    <div class="msoContainerViewport">
+      <a href="http://morningsignout.com/author/crystalchen/">
+        <img src="pictures/morning-sign-out-webpage.png" id="mso-webpage" />
+      </a>
+    </div>
+</template>
+
+<template name="projectsDesktop">
+  <div class="desktopContainer">
+    <div id="about-desktop" class='outsideLink'><a href="http://crystalsproject.meteor.com">desktop <br>playthings demo</a></div>
+
+  <div id="more-about-desktop">
+    a collection made in the month of August 2015
+  </div>
+  </div>
+  <div class="desktopDemoViewport">
+      <img src="pictures/webpage-1.png" />
+      <img src="pictures/webpage-2.png" />
+      <img src="pictures/animate.png" />
+  </div>
+</template>
+
+<template name="about-me">
+    <div id="about-me-info">
+      <div>is self-learning <span style="font-weight: bold;"><br>web & mobile <br>design & development, <br>web animations.</span>
+        <br>
+        <br> Current student at the University of California Los Angeles</div>
+    </div>
+</template>
+
+<template name="oldcontact">
+  <div id="contactMeContainer">
+    <form id="contact-me">
+
+    <div class="group">
+      <input type="text" required id="name">
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Name</label>
+    </div>
+    <br>
+    <div class="group">
+      <input type="text" required id="emailorphone">
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Email or Phone</label>
+    </div>
+    <br>
+    <div class="group">
+      <input type="text" required id="message">
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Message</label>
+    </div>
+    <br>
+    <div class="button raised">
+      <div class="center" fit>SEND</div>
+    </div>
+
+  </form>
+  </div>
+</template>
+<!--
+<template name="submitted">
+  <div class="submittedContainer">
+  <div id="thanksforsubmitting">Thanks for your message! I will receive it shortly and get back to you.
+  </div>
+  <div class="button raised" id="back-button">
+    <div class="center" fit>BACK</div>
+    <paper-ripple fit></paper-ripple>
+  </div>
+</div>
+</template> -->
