@@ -27,7 +27,8 @@
   text-align: center;
 }
 .gif-container img {
-  height: 90vh;
+
+  height: 80vh;
 }
 /*.gif-container img:hover {
   outline: #333 solid 4px;
@@ -90,7 +91,7 @@ app-drawer {
 
 }
 
-@media (max-width: 10000px){
+@media (min-width: 700px){
   #drawer {
   --app-drawer-width: 400px;
   }
@@ -113,9 +114,9 @@ app-drawer {
     list-style: none;
     display: table;
     table-layout: fixed;
-    padding: 0 3vw 0 3vw;
-    border-spacing: 2vh 5vh;
-    height: 100vh;
+    /*padding: 0 3vw 0 3vw;*/
+    /*border-spacing: 2vh 5vh;*/
+    /*height: 100vh;*/
   }
 }
 iron-icon {
@@ -134,6 +135,7 @@ iron-icon {
 .menuItems li {
   text-align: center;
   display: table-row;
+
   background-image: url('/pictures/galaxy-background.jpg');
   background-attachment: fixed;
   background-size: cover;
@@ -164,7 +166,7 @@ a {
 }
 .intro {
   position: relative;
-  margin-left: 30vw;
+  margin-left: 10vw;
   font-family: "Josefin Slab", verdana, sans-serif;
   font-size: 5vh;
 }

@@ -46,21 +46,21 @@ Template.home.events({
 /* Email */
 Template.contact.events({
   'click #submit-message':function(e,t){
-
-    var sendername = t.find("#sender-name").value;
-    var sendercontact = t.find("#sender-contact").value;
-    var message = t.find("#message").value;
-
-    if (sendername == undefined || sendercontact == undefined || message == undefined) {
-      alert("Please complete the form.")
-    } else {
-      Meteor.call("sendEmail", "51614cc@gmail.com", "contactcrystalchen@gmail.com", "Website Contact Form", message );
-        console.log("your name is" + sendername);
-        console.log("email sent");
-
-      $(".ContactForm")[0].reset();
-      // FlowRouter.go("/submitted")
-    }
+      alert("Sorry, this form is not working right now. Please send me an email at crystalchen@ucla.edu. Thank you.")
+    // var sendername = t.find("#sender-name").value;
+    // var sendercontact = t.find("#sender-contact").value;
+    // var message = t.find("#message").value;
+    //
+    // if (sendername == undefined || sendercontact == undefined || message == undefined) {
+    //   alert("Please complete the form.")
+    // } else {
+    //   Meteor.call("sendEmail", "51614cc@gmail.com", "contactcrystalchen@gmail.com", "Website Contact Form", message );
+    //     console.log("your name is" + sendername);
+    //     console.log("email sent");
+    //
+    //   $(".ContactForm")[0].reset();
+    //   // FlowRouter.go("/submitted")
+    // }
   }
 });
 
